@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="pandoc" />
+
+        <meta name="author" content="Isabela Ceriani" />
+    
+    
+    <title>TP2 Anaydis</title>
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+        <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="site_libs/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="site_libs/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+    <script src="site_libs/navigation-1.1/tabsets.js"></script>
+    <link href="site_libs/magnific-popup-1.1.0/magnific-popup.css" rel="stylesheet" />
+    <script src="site_libs/magnific-popup-1.1.0/jquery.magnific-popup.min.js"></script>
+    <link href="site_libs/bootstrap_material-0.1/bootstrap-material-design.min.css" rel="stylesheet" />
+    <link href="site_libs/bootstrap_material-0.1/ripples.min.css" rel="stylesheet" />
+    <script src="site_libs/bootstrap_material-0.1/material.min.js"></script>
+    <script src="site_libs/bootstrap_material-0.1/ripples.min.js"></script>
+    <link href="site_libs/material-0.1/material.css" rel="stylesheet" />
+    <script src="site_libs/material-0.1/material.js"></script>
+    
+    
+    
+    
+    <!-- tabsets -->
+    <script>
+      $(document).ready(function () {
+	  window.buildTabsets("toc");
+      });
+      $(document).ready(function () {
+	  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+	      $(this).parent().toggleClass('nav-tabs-open')
+	  });
+      });
+    </script>
+
+    <!-- code folding -->
+    
+    <!-- code download -->
+    
+
+    <!-- tabsets dropdown -->
+
+    <style type="text/css">
+      .tabset-dropdown > .nav-tabs {
+	  display: inline-table;
+	  max-height: 500px;
+	  min-height: 44px;
+	  overflow-y: auto;
+	  background: white;
+	  border: 1px solid #ddd;
+	  border-radius: 4px;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li.active:before {
+	  content: "";
+	  font-family: 'Glyphicons Halflings';
+	  display: inline-block;
+	  padding: 10px;
+	  border-right: 1px solid #ddd;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+	  content: "&#xe258;";
+	  border: none;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+	  content: "";
+	  font-family: 'Glyphicons Halflings';
+	  display: inline-block;
+	  padding: 10px;
+	  border-right: 1px solid #ddd;
+      }
+      
+      .pages .tabset-dropdown > .nav-tabs > li.active {
+	  display: block;
+      }
+
+      .pages .tabset-dropdown > .nav-tabs > li.active > a {
+	  background-color: transparent !important;
+	  color: #000000 !important;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li > a,
+      .tabset-dropdown > .nav-tabs > li > a:focus,
+      .tabset-dropdown > .nav-tabs > li > a:hover {
+	  border: none;
+	  display: inline-block;
+	  border-radius: 4px;
+	  background-color: transparent;
+	  color: #00A698 !important;
+	  font-weight: 300 !important;
+	  font-size: 14px;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+	  display: block;
+	  float: none;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li {
+	  display: none;
+      }
+    </style>
+    
+</head>
+
+<body>
+
+  <div class="header-panel shadow z-2">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-3">
+	  	  <div id="header">
+	    <h1 class="title">TP2 Anaydis</h1>
+	    	    	    	    <h4 class="author">Isabela Ceriani</h4>
+	    	    	    	    <h4 class="date">9/1/2020</h4>
+	    	  </div>
+	  	</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid main-container">
+    <div class="row">
+
+      <nav class="col-xs-3 menu">
+	<div id="toc">
+          <ul>
+          <li><a href="#introduction">Introduction</a></li>
+          <li><a href="#bubble">Bubble</a></li>
+          <li><a href="#insertion">Insertion</a></li>
+          <li><a href="#selection">Selection</a></li>
+          <li><a href="#bibliography">Bibliography</a></li>
+          </ul>
+	</div>
+      </nav>
+      
+      <div class="pages col-xs-9">
+
+        
+	<div class="row">
+
+	  <div class="col-xs-10">
+	    <div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p><em>Note: All algorithms were tested using a List of integers with N sizes of {10, 50, 500, 1000, 5000}</em> <img src="Logo%20Austral.png" width="70%" style="display: block; margin: auto;" /></p>
+<div id="catedra" class="section level2">
+<h2>Catedra</h2>
+<ul>
+<li>Emilio López Gabeiras</li>
+<li>Pedro Colunga</li>
+<li>Lucas Luppani</li>
+<li>Alvaro Gaita</li>
+<li>Khalil Stessens</li>
+</ul>
+</div>
+</div>
+<div id="bubble" class="section level1 tabset tabset-fade tabset-pills unnumbered">
+<h1>Bubble</h1>
+<div id="best-case" class="section level2">
+<h2>Best case</h2>
+<p><img src="index_files/figure-html/BestCaseBubble-1.png" width="576" /></p>
+<div id="data-points" class="section level3">
+<h3>Data Points</h3>
+<table>
+<thead>
+<tr class="header">
+<th>N</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>10</td>
+<td>4.8121E-5</td>
+</tr>
+<tr class="even">
+<td>50</td>
+<td>7.7118E-5</td>
+</tr>
+<tr class="odd">
+<td>500</td>
+<td>3.17901E-4</td>
+</tr>
+<tr class="even">
+<td>1000</td>
+<td>6.29483E-4</td>
+</tr>
+<tr class="odd">
+<td>5000</td>
+<td>0.001371825</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="worst-case" class="section level2">
+<h2>Worst case</h2>
+<p><img src="index_files/figure-html/WorstCaseBubble-1.png" width="576" /></p>
+<div id="data-points-1" class="section level3">
+<h3>Data Points</h3>
+<table>
+<thead>
+<tr class="header">
+<th>N</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>10</td>
+<td>6.8486E-5</td>
+</tr>
+<tr class="even">
+<td>50</td>
+<td>0.001515815</td>
+</tr>
+<tr class="odd">
+<td>500</td>
+<td>0.011173149</td>
+</tr>
+<tr class="even">
+<td>1000</td>
+<td>0.023568484</td>
+</tr>
+<tr class="odd">
+<td>5000</td>
+<td>0.166248675</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="average-case" class="section level2">
+<h2>Average case</h2>
+<p><img src="index_files/figure-html/AverageCaseBubble-1.png" width="576" /></p>
+<div id="data-points-2" class="section level3">
+<h3>Data Points</h3>
+<table>
+<thead>
+<tr class="header">
+<th>N</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>10</td>
+<td>1.15341E-4</td>
+</tr>
+<tr class="even">
+<td>50</td>
+<td>0.001068209</td>
+</tr>
+<tr class="odd">
+<td>500</td>
+<td>0.019075861</td>
+</tr>
+<tr class="even">
+<td>1000</td>
+<td>0.022284249</td>
+</tr>
+<tr class="odd">
+<td>5000</td>
+<td>0.206268856</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p><em>Note: This bubble algorithm used a variable so as not to go through (revisit) the section of the list that has already been sorted</em> <br><br><br />
+<strong>Theory</strong></p>
+<ul>
+<li>Average and worst case:
+<ul>
+<li>Same amount of comparisons and exchanges.</li>
+<li>Comparisons ≈ (2N)/2</li>
+<li>Exchanges ≈ (2N)/2</li>
+</ul></li>
+<li>Best case:
+<ul>
+<li>Comparisons ≈ (2N)/2</li>
+<li>Exchanges = 0</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><strong>In the graphs</strong></p>
+<p>We can see that the worst and average cases are approximately the same, while the best case is much better since it did not need to perform any exchanges. <br> Because of the enhancement it performs better than the other two algorithms in the best case escenario that only involves comparisons. This is not the case in the worst and average cases because the bubble sorter involves a greater amount of swaps.</p>
+</div>
+</div>
+<div id="insertion" class="section level1 tabset tabset-fade tabset-pills unnumbered">
+<h1>Insertion</h1>
+<div id="best-case-1" class="section level2">
+<h2>Best case</h2>
+<p><img src="index_files/figure-html/BestCaseInsertion-1.png" width="576" /></p>
+<div id="data-points-3" class="section level3">
+<h3>Data Points</h3>
+<table>
+<thead>
+<tr class="header">
+<th>N</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>10</td>
+<td>2.8397E-5</td>
+</tr>
+<tr class="even">
+<td>50</td>
+<td>5.3636E-5</td>
+</tr>
+<tr class="odd">
+<td>500</td>
+<td>4.39847E-4</td>
+</tr>
+<tr class="even">
+<td>1000</td>
+<td>6.29483E-4</td>
+</tr>
+<tr class="odd">
+<td>5000</td>
+<td>0.001979316</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="worst-case-1" class="section level2">
+<h2>Worst case</h2>
+<p><img src="index_files/figure-html/WorstCaseInsertion-1.png" width="576" /></p>
+<div id="data-points-4" class="section level3">
+<h3>Data Points</h3>
+<table>
+<thead>
+<tr class="header">
+<th>N</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>10</td>
+<td>1.12969E-4</td>
+</tr>
+<tr class="even">
+<td>50</td>
+<td>0.001358959</td>
+</tr>
+<tr class="odd">
+<td>500</td>
+<td>0.00908131</td>
+</tr>
+<tr class="even">
+<td>1000</td>
+<td>0.033699095</td>
+</tr>
+<tr class="odd">
+<td>5000</td>
+<td>0.148375862</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="average-case-1" class="section level2">
+<h2>Average case</h2>
+<p><img src="index_files/figure-html/AverageCaseInsertion-1.png" width="576" /></p>
+<div id="data-points-5" class="section level3">
+<h3>Data Points</h3>
+<table>
+<thead>
+<tr class="header">
+<th>N</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>10</td>
+<td>14.4753E-5</td>
+</tr>
+<tr class="even">
+<td>50</td>
+<td>9.27765E-4</td>
+</tr>
+<tr class="odd">
+<td>500</td>
+<td>0.006678457</td>
+</tr>
+<tr class="even">
+<td>1000</td>
+<td>0.0144707</td>
+</tr>
+<tr class="odd">
+<td>5000</td>
+<td>0.094979803</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="conclusion-1" class="section level2">
+<h2>Conclusion</h2>
+<p><strong>Theory</strong> <br><br></p>
+<ul>
+<li>Worst and average case: O(n²).</li>
+<li>Almost sorted file: O(n).</li>
+</ul>
+<div class="figure">
+<img src="Table%20of%20Times.png" alt="Image taken from MIT.edu (see in bibliography)" />
+<p class="caption">Image taken from MIT.edu (see in bibliography)</p>
+</div>
+<p><strong>In the graphs</strong></p>
+<p>We know from the theory that given an almost sorted file, this algorithm will perfom better, and this shows in the graphs. <br> We can also see in the image above that the Insertion Sort algorithm is slightly better in number of comparisons, which explains why it performs better than Selection particularly in the best case escenario. The reason why this does not apply to Bubble sort may be that there is an enhancement in its implementation.</p>
+</div>
+</div>
+<div id="selection" class="section level1 tabset tabset-fade tabset-pills unnumbered">
+<h1>Selection</h1>
+<div id="best-case-2" class="section level2">
+<h2>Best case</h2>
+<p><img src="index_files/figure-html/BestCaseSelection-1.png" width="576" /></p>
+<div id="data-points-6" class="section level3">
+<h3>Data Points</h3>
+<table>
+<thead>
+<tr class="header">
+<th>N</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>10</td>
+<td>5.5708E-5</td>
+</tr>
+<tr class="even">
+<td>50</td>
+<td>9.99801E-4</td>
+</tr>
+<tr class="odd">
+<td>500</td>
+<td>0.007070195</td>
+</tr>
+<tr class="even">
+<td>1000</td>
+<td>0.018631636</td>
+</tr>
+<tr class="odd">
+<td>5000</td>
+<td>0.03580849</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="worst-case-2" class="section level2">
+<h2>Worst case</h2>
+<p><img src="index_files/figure-html/WorstCaseSelection-1.png" width="576" /></p>
+<div id="data-points-7" class="section level3">
+<h3>Data Points</h3>
+<table>
+<thead>
+<tr class="header">
+<th>N</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>10</td>
+<td>6.2231E-5</td>
+</tr>
+<tr class="even">
+<td>50</td>
+<td>0.001219643</td>
+</tr>
+<tr class="odd">
+<td>500</td>
+<td>0.006639129</td>
+</tr>
+<tr class="even">
+<td>1000</td>
+<td>0.014781115</td>
+</tr>
+<tr class="odd">
+<td>5000</td>
+<td>0.081176325</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="average-case-2" class="section level2">
+<h2>Average case</h2>
+<p><img src="index_files/figure-html/AverageCaseSelection-1.png" width="576" /></p>
+<div id="data-points-8" class="section level3">
+<h3>Data Points</h3>
+<table>
+<thead>
+<tr class="header">
+<th>N</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>10</td>
+<td>5.8155E-5</td>
+</tr>
+<tr class="even">
+<td>50</td>
+<td>7.48016E-4</td>
+</tr>
+<tr class="odd">
+<td>500</td>
+<td>0.009733313</td>
+</tr>
+<tr class="even">
+<td>1000</td>
+<td>0.016573495</td>
+</tr>
+<tr class="odd">
+<td>5000</td>
+<td>0.07266654</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="conclusion-2" class="section level2">
+<h2>Conclusion</h2>
+<p><br><br> <strong>Theory</strong></p>
+<ul>
+<li>The Selection Sorter algorithm is:
+<ul>
+<li>Non-adptive</li>
+<li>Quadractic in number of comparisons O(n²).</li>
+<li>Linear in number of exchanges O(n).</li>
+<li>It will always do the same amount of comparisons.</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><strong>In the graphs</strong></p>
+<p>Once again, we can see the similarity between the average and worst case escenarios. This is the one that performs the best in the worst case scenario because it only swaps when the declared lowest value changes.</p>
+</div>
+</div>
+<div id="bibliography" class="section level1">
+<h1>Bibliography</h1>
+<p><a href="http://web.mit.edu/1.124/LectureNotes/sorting.html#:~:text=Examples%20of%20elementary%20sorting%20algorithms,algorithms%20which%20have%20widespread%20use.">MIT</a> <br> <a href="https://facultaddeingenieria.github.io/anaydis/elemental_sorters#25">Anaydis</a> <br> <a href="https://medium.com/@DiData/elementary-search-algorithms-explained-fde60052507b">Medium</a></p>
+</div>
+	  </div>
+
+	  <div class="col-xs-2">
+
+	    
+	    </div>
+    </div>
+	
+    
+    </div>
+  </div>
+
+ <script>
+    $(document).ready(function () {
+	// add bootstrap table styles to pandoc tables
+	$('tr.header').parent('thead').parent('table').addClass('table table-striped table-hover');
+	
+		var images = $('.pages img');
+	images.filter(function() {
+	    if ($(this).parent().attr("class") == "figure") {
+		return(false)
+	    } else {
+		return(true);
+	    }
+	}).wrap("<div class='figure'></div>");
+	images.addClass("image-thumb").wrap("<div class='panel-body'></div>");
+	$('.figure p.caption').wrap("<div class='panel-footer'></div>");
+	$('.figure').addClass('panel panel-default');
+	
+		$('.pages img').addClass("image-lb");
+	$('.pages').magnificPopup({
+	    type:'image',
+	    closeOnContentClick: false,
+	    closeBtnInside: false,
+            delegate: 'img',
+	    gallery: {enabled: false },
+            removalDelay: 500,
+            callbacks: {
+		beforeOpen: function() {
+                    // just a hack that adds mfp-anim class to markup
+                    this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+		}
+            },
+            mainClass: 'mfp-move-from-top',
+	    image: {
+	        verticalFit: true,
+		titleSrc: 'alt'
+	    }
+ 	});
+ 	
+	  
+	$('#toc ul li').first().addClass("active");
+	$('#toc ul li').attr("data-target", function() {
+            return($(this).children("a").attr("href"));
+	})
+	$('body .section.level1').first().addClass("active");
+	$('body .section.level1').not('.active').hide();
+	
+	$('#toc a[href*="#"], a[href^="#"]').click(function() {
+	    var id = $(this).attr("href");
+	    if (id === "#") return;
+	    if (id.substring(0, 8) === "#dyntab-") return;
+	    // Menu
+	    var menu_entry = $(".menu li[data-target='"+id+"']");
+	    if (menu_entry.length == 0) {
+		window.location.hash = id;
+		return;
+	    }
+	    menu_entry.addClass("active");
+	    $(".menu li").not(menu_entry).removeClass("active"); 
+	    toggle_page(id);
+	});
+
+	function toggle_page(id) {
+	    $(".page").not(page).removeClass("active").hide();
+	    window.page = id;
+	    var page = $(window.page);
+	    window.location.hash = window.page;
+	    //$(this).addClass("active");
+	    page.show();
+
+	    var totop = setInterval(function () {
+		$(".pages").animate({scrollTop: 0}, 0);
+	    }, 10);
+
+	    setTimeout(function () {
+		page.addClass("active");
+		setTimeout(function () {
+		    clearInterval(totop);
+		}, 1000);
+	    }, 100);
+	    
+	    window.dispatchEvent(new Event('resize'));
+	}
+
+
+	$(".menu li").click(function () {
+	    toggle_page($(this).data("target"));
+	    // Menu
+	    if (!$(this).data("target")) return;
+	    if ($(this).is(".active")) return;
+	    $(".menu li").not($(this)).removeClass("active");
+	    $(this).addClass("active");
+	});
+  
+	  
+	window.page = window.location.hash;
+	if (window.page != "") {
+	    $(".menu").find("li[data-target=" + window.page + "]").trigger("click");
+	}
+	/* init material bootstrap js */
+	$.material.init();
+    });
+ </script>
+
+
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+ <script>
+   (function () {
+       var script = document.createElement("script");
+       script.type = "text/javascript";
+       script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+       document.getElementsByTagName("head")[0].appendChild(script);
+   })();
+ </script>
+ 
+</body>
+</html>
