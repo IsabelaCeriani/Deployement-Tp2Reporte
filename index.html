@@ -577,7 +577,7 @@
 <li>In method testShellStability() the folllowing list was runned: (“1”, “2”, “3”, “4”, “5”, “6”, “7”)</li>
 <li>Then, it was sorted using shellsort by the length of each string (they were all length 1).</li>
 <li>The output was the following list: (“7”, “6”, “5”, “4”, “3”, “2”, “1”)</li>
-<li>It did not mainain the original order of the duplicate keys.</li>
+<li>It did not mainain the original order of the duplicated keys.</li>
 </ul></li>
 </ul>
 <p><br></p>
@@ -622,7 +622,7 @@
 </tr>
 </tbody>
 </table>
-<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" width="100%" style="display: block; margin: auto;" /><img src="index_files/figure-html/unnamed-chunk-9-2.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="index_files/figure-html/first%20sequence-1.png" width="576" /><img src="index_files/figure-html/first%20sequence-2.png" width="576" /></p>
 </div>
 <div id="second-sequence" class="section level2">
 <h2>Second sequence</h2>
@@ -661,7 +661,7 @@
 </tr>
 </tbody>
 </table>
-<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" width="100%" style="display: block; margin: auto;" /><img src="index_files/figure-html/unnamed-chunk-10-2.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="index_files/figure-html/second%20sequence-1.png" width="576" /><img src="index_files/figure-html/second%20sequence-2.png" width="576" /></p>
 </div>
 </div>
 <div id="quicksort" class="section level1">
@@ -678,8 +678,12 @@
 </ul></li>
 <li>Cons:
 <ul>
-<li><strong>Not stable because any key might be moved past a large number of keys equal to it (which have not even been examined yet) during any exchange. There is no easy way to make an array-based quicksort stable is known. Example: </strong> In class TestStability the following list was sorted using quicksort by the length of the strings: (“1”, “2”, “3”, “4”, “5”, “6”, “7”). The output was the following list: (“5”, “4”, “6”, “7”, “1”, “3”, “2”) It did not maintin the order of duplicated keys</li>
+<li><strong>Not stable because any key might be moved past a large number of keys equal to it (which have not even been examined yet) during any exchange. There is no easy way to make an array-based quicksort stable is known. Example: </strong> *In class TestStability the following list was sorted using quicksort by the length of the strings: (“1”, “2”, “3”, “4”, “5”, “6”, “7”).
+<ul>
+<li>The output was the following list: (“5”, “4”, “6”, “7”, “1”, “3”, “2”)</li>
+<li>It did not maintin the order of duplicated keys</li>
 <li>Takes about N2 operations in the worst case.</li>
+</ul></li>
 <li>It is fragile in the sense that a simple mistake in the implementation can go unnoticed and can cause it to perform badly for some files.</li>
 </ul></li>
 </ul>
