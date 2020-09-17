@@ -141,6 +141,8 @@
           <li><a href="#bubble">Bubble</a></li>
           <li><a href="#insertion">Insertion</a></li>
           <li><a href="#selection">Selection</a></li>
+          <li><a href="#shellsort">ShellSort</a></li>
+          <li><a href="#quicksort">QuickSort</a></li>
           <li><a href="#bibliography">Bibliography</a></li>
           </ul>
 	</div>
@@ -559,9 +561,137 @@
 <p>Once again, we can see the similarity between the average and worst case escenarios. This is the one that performs the best in the worst case scenario because it only swaps when the declared lowest value changes.</p>
 </div>
 </div>
+<div id="shellsort" class="section level1 tabset tabset-fade tabset-pills unnumbered">
+<h1>ShellSort</h1>
+<div id="description" class="section level2">
+<h2>Description</h2>
+<ul>
+<li>Generalization of InsertionSort, instead of comparing with the adjacent element, there’s a gap between the compared elements. The gap size decreases in each set of comparisons.<br />
+<br></li>
+<li><p>The result of h-sorting a file that is k-ordered is a file that is both h-and k-ordered. <br></p></li>
+<li><p>Shellsort does less than O(N3/2) comparisons for the increments 1 4 13 40 121 364 1093 3280 9841 … <br></p></li>
+<li><p>Shellsort does less than O(N(log N)2) comparisons for the increments 1 2 3 4 6 9 8 12 18 27 16 24 36 54 81 …. <br></p></li>
+<li><p>Shellsort does less than O(N4/3) comparisons for the increments 1 8 23 77 281 1073 4193 16577 …. <br></p></li>
+<li><strong>Not stable: ShellSort does not examine the elements in between the gap when compairing. Therefore, it cannot be assured that the order of duplicate keys will be respected. Example: </strong>
+<ul>
+<li>In method testShellStability() the folllowing list was runned: (“1”, “2”, “3”, “4”, “5”, “6”, “7”)</li>
+<li>Then, it was sorted using shellsort by the length of each string (they were all length 1).</li>
+<li>The output was the following list: (“7”, “6”, “5”, “4”, “3”, “2”, “1”)</li>
+<li>It did not mainain the original order of the duplicate keys.</li>
+</ul></li>
+</ul>
+<p><br></p>
+<ul>
+<li>In-place</li>
+</ul>
+</div>
+<div id="first-sequence" class="section level2">
+<h2>First sequence</h2>
+<p>First sequence = {1, 8, 23, 77, 281, 1073, 4193, 16577} <br></p>
+<table>
+<thead>
+<tr class="header">
+<th>N</th>
+<th>Times Runned</th>
+<th>Data arrangement</th>
+<th>Time taken (mS)</th>
+<th>Order</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>100</td>
+<td>20</td>
+<td>RANDOM</td>
+<td>0.6</td>
+<td>41852</td>
+</tr>
+<tr class="even">
+<td>1000</td>
+<td>20</td>
+<td>RANDOM</td>
+<td>1.75</td>
+<td>1038672</td>
+</tr>
+<tr class="odd">
+<td>10000</td>
+<td>20</td>
+<td>RANDOM</td>
+<td>35.55</td>
+<td>57942473</td>
+</tr>
+</tbody>
+</table>
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" width="100%" style="display: block; margin: auto;" /><img src="index_files/figure-html/unnamed-chunk-9-2.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="second-sequence" class="section level2">
+<h2>Second sequence</h2>
+<p>Sequence = {1, 4, 13, 40, 121, 364, 1093, 3280 ,9841} <br></p>
+<table>
+<thead>
+<tr class="header">
+<th>N</th>
+<th>Times Runned</th>
+<th>Data arrangement</th>
+<th>Time taken (mS)</th>
+<th>Order</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>100</td>
+<td>20</td>
+<td>RANDOM</td>
+<td>0.05</td>
+<td>47595</td>
+</tr>
+<tr class="even">
+<td>1000</td>
+<td>20</td>
+<td>RANDOM</td>
+<td>1.00</td>
+<td>1107009</td>
+</tr>
+<tr class="odd">
+<td>10000</td>
+<td>20</td>
+<td>RANDOM</td>
+<td>34.4</td>
+<td>58497091</td>
+</tr>
+</tbody>
+</table>
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" width="100%" style="display: block; margin: auto;" /><img src="index_files/figure-html/unnamed-chunk-10-2.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="quicksort" class="section level1">
+<h1>QuickSort</h1>
+<div id="description-1" class="section level2">
+<h2>Description:</h2>
+<ul>
+<li>Pros:
+<ul>
+<li>In-place: Uses only a small auxiliary stack.</li>
+<li>Requires time only proportional to N log N on the average to sort N items</li>
+<li>Has an extremely short inner loop.</li>
+<li>Easy to implement. <br><br></li>
+</ul></li>
+<li>Cons:
+<ul>
+<li><strong>Not stable because any key might be moved past a large number of keys equal to it (which have not even been examined yet) during any exchange. There is no easy way to make an array-based quicksort stable is known. Example: </strong> In class TestStability the following list was sorted using quicksort by the length of the strings: (“1”, “2”, “3”, “4”, “5”, “6”, “7”). The output was the following list: (“5”, “4”, “6”, “7”, “1”, “3”, “2”) It did not maintin the order of duplicated keys</li>
+<li>Takes about N2 operations in the worst case.</li>
+<li>It is fragile in the sense that a simple mistake in the implementation can go unnoticed and can cause it to perform badly for some files.</li>
+</ul></li>
+</ul>
+</div>
+<div id="quicksort-partitioning" class="section level2">
+<h2>Quicksort partitioning</h2>
+<p><img src="QuickSort.png" /> A given file is divided into two subfiles that can be sorted independently. Once sorted, there are no dots above and to its left because no larger element is found when examinning the left subfile; and there are no dots below and to its right because no smaller element was found when examinning the right side. The element in the diagonal is known as the pivot.</p>
+</div>
+</div>
 <div id="bibliography" class="section level1">
 <h1>Bibliography</h1>
-<p><a href="http://web.mit.edu/1.124/LectureNotes/sorting.html#:~:text=Examples%20of%20elementary%20sorting%20algorithms,algorithms%20which%20have%20widespread%20use.">MIT</a> <br> <a href="https://facultaddeingenieria.github.io/anaydis/elemental_sorters#25">Anaydis</a> <br> <a href="https://medium.com/@DiData/elementary-search-algorithms-explained-fde60052507b">Medium</a></p>
+<p><a href="http://web.mit.edu/1.124/LectureNotes/sorting.html#:~:text=Examples%20of%20elementary%20sorting%20algorithms,algorithms%20which%20have%20widespread%20use.">MIT</a> <br> <a href="https://facultaddeingenieria.github.io/anaydis/elemental_sorters#25">Anaydis</a> <br> <a href="https://medium.com/@DiData/elementary-search-algorithms-explained-fde60052507b">Medium</a> <a href="https://users.dcc.uchile.cl/~nbaloian/cc3001-02/Libros/Algoritmos%20y%20Estructura%20de%20Datos/Addison%20Wesley%20-%20Algorithms%20in%20Java,%20Parts%201-4,%203rd%20Edition%20.pdf">Addison Wesley - Algorithms in Java, Parts 1-4, 3rd Edition</a></p>
 </div>
 	  </div>
 
