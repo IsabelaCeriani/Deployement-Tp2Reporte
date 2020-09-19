@@ -1,0 +1,673 @@
+---
+title: "TP2 Anaydis"
+author: "Isabela Ceriani"
+date: "9/1/2020"
+output: rmdformats::material
+highlight: github
+self_contained: true
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+```
+```{r import dataset}
+library(ggplot2)
+
+#   long reference=System.nanoTime();
+#   x.sort();
+#   long finishm=System.nanoTime();
+#        
+#        System.out.println("time: ");
+
+#        System.out.println( ( (double)(finishm-reference) )/1000000000.0);
+
+#rmarkdown::render_site()
+```
+
+# Introduction
+```{r, echo=FALSE, out.width="70%", fig.align='center'}
+knitr::include_graphics("/Users/isabelaceriani/Documents/Projects/R/Logo Austral.png")
+```
+
+## Catedra
+
+* Emilio López Gabeiras
+* Pedro Colunga
+* Lucas Luppani 
+* Alvaro Gaita 
+* Khalil Stessens 
+
+# Bubble {.tabset .tabset-fade .tabset-pills .unnumbered}
+## Best case
+```{r BestCaseBubble}
+# create data
+n1 = 10;
+n2= 50;
+n3 = 500;
+n4 = 1000;
+n5 = 5000;
+
+Nsize <- c(n1, n2, n3, n4, n5)
+
+y1 = 4.8121E-5
+y2 = 7.7118E-5
+y3 = 3.17901E-4
+y4 = 6.29483E-4
+y5 = 0.001371825
+
+
+
+
+Time <- c(y1, y2, y3, y4, y5)
+yLabels <- c("10", "50", "500", "1000", "5000")
+data <- data.frame(Nsize, Time)
+
+# Plot
+ggplot(data, aes(x=Nsize, y=Time)) +
+   geom_line( color="#69b3a2", size=2, alpha=0.9) +
+  ggtitle("Best Case with Bubble Sorter")
+
+```
+
+### Data Points 
+|        N          |    Time     |
+|-------------------|-------------|
+|       10          | 4.8121E-5   |   
+|       50          | 7.7118E-5   |   
+|       500         | 3.17901E-4  |   
+|       1000        | 6.29483E-4  |   
+|       5000        | 0.001371825 |   
+
+
+## Worst case 
+```{r WorstCaseBubble}
+# create data
+n1 = 10;
+n2= 50;
+n3 = 500;
+n4 = 1000;
+n5 = 5000;
+
+Nsize <- c(n1, n2, n3, n4, n5)
+
+y1 =6.8486E-5
+y2 = 0.001515815
+y3 = 0.011173149
+y4 = 0.023568484
+y5 = 0.166248675
+
+Time <- c(y1, y2, y3, y4, y5)
+data <- data.frame(Nsize, Time)
+
+# Plot
+ggplot(data, aes(x=Nsize, y=Time)) +
+   geom_line( color="#69b3a2", size=2, alpha=0.9) +
+  ggtitle("Worst Case with Bubble Sorter")
+
+
+
+```
+
+### Data Points 
+
+|        N          |    Time     |
+|-------------------|-------------|
+|       10          | 6.8486E-5   |   
+|       50          | 0.001515815 |   
+|       500         | 0.011173149 |   
+|       1000        | 0.023568484 |   
+|       5000        | 0.166248675 |   
+
+## Average case 
+```{r AverageCaseBubble}
+# create data
+n1 = 10;
+n2= 50;
+n3 = 500;
+n4 = 1000;
+n5 = 5000;
+
+Nsize <- c(n1, n2, n3, n4, n5)
+
+y1 = 1.15341E-4
+y2 = 0.001068209
+y3 = 0.019075861
+y4 = 0.022284249
+y5 = 0.206268856
+
+Time <- c(y1, y2, y3, y4, y5)
+data <- data.frame(Nsize, Time)
+
+# Plot
+ggplot(data, aes(x=Nsize, y=Time)) +
+   geom_line( color="#69b3a2", size=2, alpha=0.9) +
+  ggtitle("Average Case with Bubble Sorter")
+```
+
+### Data Points 
+
+|        N          |    Time     |
+|-------------------|-------------|
+|       10          | 1.15341E-4  |   
+|       50          | 0.001068209 |   
+|       500         | 0.019075861 |   
+|       1000        | 0.022284249 |   
+|       5000        | 0.206268856 |   
+
+
+
+## Conclusion
+_Note: This bubble algorithm used a variable so as not to go through (revisit) the section of the list that has already been sorted_ 
+<br><br>  
+**Theory**
+
+* Average and worst case:
+    * Same amount of comparisons and exchanges.
+    * Comparisons ≈ (2N)/2
+    * Exchanges ≈ (2N)/2
+    
+* Best case:
+    * Comparisons ≈ (2N)/2
+    * Exchanges = 0
+
+<br> 
+
+**In the graphs**
+
+We can see that the worst and average cases are approximately the same, while the best case is much better since it did not need to perform any exchanges.
+<br>
+Because of the enhancement it performs better than the other two algorithms in the best case escenario that only involves comparisons. This is not the case in the worst and average cases because the bubble sorter involves a greater amount of swaps. 
+
+
+# Insertion {.tabset .tabset-fade .tabset-pills .unnumbered}
+## Best case
+```{r BestCaseInsertion}
+# create data
+n1 = 10;
+n2= 50;
+n3 = 500;
+n4 = 1000;
+n5 = 5000;
+
+Nsize <- c(n1, n2, n3, n4, n5)
+
+y1 = 2.8397E-5
+y2 = 5.3636E-5
+y3 = 4.39847E-4
+y4 = 6.45406E-4
+y5 = 0.001979316
+
+Time <- c(y1, y2, y3, y4, y5)
+data <- data.frame(Nsize, Time)
+
+# Plot
+ggplot(data, aes(x=Nsize, y=Time)) +
+   geom_line( color="#69b3a2", size=2, alpha=0.9) +
+  ggtitle("Best Case with Insertion Sorter")
+
+
+
+```
+
+### Data Points 
+
+|        N          |    Time     |
+|-------------------|-------------|
+|       10          | 2.8397E-5   |   
+|       50          | 5.3636E-5   |   
+|       500         | 4.39847E-4  |   
+|       1000        | 6.29483E-4  |   
+|       5000        | 0.001979316 | 
+
+
+
+## Worst case 
+```{r WorstCaseInsertion}
+# create data
+n1 = 10;
+n2= 50;
+n3 = 500;
+n4 = 1000;
+n5 = 5000;
+
+Nsize <- c(n1, n2, n3, n4, n5)
+
+y1 =1.12969E-4
+y2 = 0.001358959
+y3 = 0.00908131
+y4 = 0.033699095
+y5 = 0.148375862
+
+Time <- c(y1, y2, y3, y4, y5)
+data <- data.frame(Nsize, Time)
+
+# Plot
+ggplot(data, aes(x=Nsize, y=Time)) +
+   geom_line( color="#69b3a2", size=2, alpha=0.9) +
+  ggtitle("Worst Case with Insertion Sorter")
+
+
+
+```
+
+### Data Points 
+|        N          |    Time     |
+|-------------------|-------------|
+|       10          | 1.12969E-4  |   
+|       50          | 0.001358959 |   
+|       500         | 0.00908131  |   
+|       1000        | 0.033699095 |   
+|       5000        | 0.148375862 | 
+
+
+## Average case
+```{r AverageCaseInsertion}
+# create data
+n1 = 10;
+n2= 50;
+n3 = 500;
+n4 = 1000;
+n5 = 5000;
+
+Nsize <- c(n1, n2, n3, n4, n5)
+
+y1 =4.4753E-5
+y2 = 9.27765E-4
+y3 = 0.006678457
+y4 = 0.0144707
+y5 = 0.094979803
+
+Time <- c(y1, y2, y3, y4, y5)
+data <- data.frame(Nsize, Time)
+# Plot
+ggplot(data, aes(x=Nsize, y=Time)) +
+   geom_line( color="#69b3a2", size=2, alpha=0.9) +
+  ggtitle("Average Case with Insertion Sorter")
+
+```
+
+### Data Points 
+
+|        N          |    Time     |
+|-------------------|-------------|
+|       10          | 14.4753E-5  |   
+|       50          | 9.27765E-4  |   
+|       500         | 0.006678457 |   
+|       1000        | 0.0144707   |   
+|       5000        | 0.094979803 | 
+
+
+
+## Conclusion
+
+**Theory**
+<br><br>
+
+* Worst and average case: O(n²).
+* Almost sorted file: O(n).
+
+![Image taken from MIT.edu (see in bibliography)](/Users/isabelaceriani/Documents/Projects/R/Table of Times.png) 
+
+**In the graphs**
+
+We know from the theory that given an almost sorted file, this algorithm will perfom better, and this shows in the graphs. 
+<br>
+We can also see in the image above that the Insertion Sort algorithm is slightly better in number of comparisons, which explains why it performs better than Selection particularly in the best case escenario. The reason why this does not apply to Bubble sort may be that there is an enhancement in its implementation.
+
+# Selection {.tabset .tabset-fade .tabset-pills .unnumbered}
+## Best case
+```{r BestCaseSelection}
+# create data
+n1 = 10;
+n2= 50;
+n3 = 500;
+n4 = 1000;
+n5 = 5000;
+
+Nsize <- c(n1, n2, n3, n4, n5)
+
+y1 = 5.5708E-5
+y2 = 9.99801E-4
+y3 = 0.007070195
+y4 = 0.018631636
+y5 = 0.03580849
+
+Time <- c(y1, y2, y3, y4, y5)
+data <- data.frame(Nsize, Time)
+
+# Plot
+ggplot(data, aes(x=Nsize, y=Time)) +
+   geom_line( color="#69b3a2", size=2, alpha=0.9) +
+  ggtitle("Best Case with Selection Sorter")
+```
+
+### Data Points 
+|        N          |    Time     |
+|-------------------|-------------|
+|       10          | 5.5708E-5   |   
+|       50          | 9.99801E-4  |   
+|       500         | 0.007070195 |   
+|       1000        | 0.018631636 |   
+|       5000        | 0.03580849  | 
+
+## Worst case 
+```{r WorstCaseSelection}
+# create data
+n1 = 10;
+n2= 50;
+n3 = 500;
+n4 = 1000;
+n5 = 5000;
+
+Nsize <- c(n1, n2, n3, n4, n5)
+
+y1 =6.2231E-5
+y2 = 0.001219643
+y3 = 0.006639129
+y4 = 0.014781115
+y5 = 0.081176325
+
+Time <- c(y1, y2, y3, y4, y5)
+data <- data.frame(Nsize, Time)
+
+# Plot
+ggplot(data, aes(x=Nsize, y=Time)) +
+   geom_line( color="#69b3a2", size=2, alpha=0.9) +
+  ggtitle("Worst Case with Selection Sorter")
+
+```
+
+### Data Points 
+|        N          |    Time     |
+|-------------------|-------------|
+|       10          | 6.2231E-5   |   
+|       50          | 0.001219643 |   
+|       500         | 0.006639129 |   
+|       1000        | 0.014781115 |   
+|       5000        | 0.081176325 | 
+
+## Average case
+```{r AverageCaseSelection}
+# create data
+n1 = 10;
+n2= 50;
+n3 = 500;
+n4 = 1000;
+n5 = 5000;
+
+Nsize <- c(n1, n2, n3, n4, n5)
+
+y1 = 5.8155E-5
+y2 = 7.48016E-4
+y3 = 0.009733313
+y4 = 0.016573495
+y5 = 0.07266654
+
+Time <- c(y1, y2, y3, y4, y5)
+data <- data.frame(Nsize, Time)
+
+# Plot
+ggplot(data, aes(x=Nsize, y=Time)) +
+   geom_line( color="#69b3a2", size=2, alpha=0.9) +
+  ggtitle("Average Case with Selection Sorter")
+
+```
+
+### Data Points 
+|        N          |    Time     |
+|-------------------|-------------|
+|       10          | 5.8155E-5   |   
+|       50          | 7.48016E-4  |   
+|       500         | 0.009733313 |   
+|       1000        | 0.016573495 |   
+|       5000        | 0.07266654  | 
+
+## Conclusion
+
+<br><br>
+**Theory**
+
+* The Selection Sorter algorithm is: 
+    * Non-adptive
+    * Quadractic in number of comparisons O(n²).
+    * Linear in number of exchanges O(n).
+    * It will always do the same amount of comparisons.
+
+<br>
+
+**In the graphs**
+
+Once again, we can see the similarity between the average and worst case escenarios. 
+This is the one that performs the best in the worst case scenario because it only swaps when the declared lowest value changes.
+
+
+# ShellSort {.tabset .tabset-fade .tabset-pills .unnumbered}
+## Description
+* Generalization of InsertionSort, instead of comparing with the adjacent element, there's a gap between the compared elements. The gap size decreases in each set of comparisons.  
+ <br> 
+* The result of h-sorting a file that is k-ordered is a file that is both h-and k-ordered. 
+ <br> 
+ 
+* Shellsort does less than O(N3/2) comparisons for the increments 1 4 13 40 121 364 1093 3280 9841 ... 
+ <br>
+ 
+* Shellsort does less than O(N(log N)2) comparisons for the increments 1 2 3 4 6 9 8 12 18 27 16 24 36 54 81 .... 
+ <br> 
+ 
+* Shellsort does less than O(N4/3) comparisons for the increments 1 8 23 77 281 1073 4193 16577 ....  <br> 
+
+* **Not stable: ShellSort does not examine the elements in between the gap when compairing. Therefore, it cannot be assured that the order of duplicate keys will be respected. Example: **
+  * In method testShellStability() the folllowing list was runned: ("1", "2", "3", "4", "5", "6", "7")
+  * Then, it was sorted using shellsort by the length of each string (they were all length 1).
+  * The output was the following list: ("7", "6", "5", "4", "3", "2", "1")
+  * It did not mainain the original order of the duplicated keys.
+
+ <br> 
+ 
+* In-place
+
+## First sequence
+First sequence  = {1, 8, 23, 77, 281, 1073, 4193, 16577}
+<br>
+
+
+|        N          |  Times Runned |   Data arrangement   | Time taken (mS) | Order   |
+|-------------------|---------------|----------------------|-----------------|---------|
+|       100         |     20        |       RANDOM         |     0.6         | 41852   |
+|       1000        |     20        |       RANDOM         |     1.75        |1038672  |
+|       10000       |     20        |       RANDOM         |     35.55       |57942473 |
+
+
+```{r first sequence}
+
+#Bench result 1: 
+nSize1= 100
+TimesExecuted1= 20
+Order1= 41852
+Time1= 0.6
+
+#Bench result 2: 
+nSize2= 1000
+TimesExecuted2= 20
+Order2= 1038672
+Time2= 1.75
+
+#Bench result 3: 
+
+nSize3= 10000
+TimesExecuted= 20
+Order3= 57942473
+Time3= 35.55
+
+Nsize = c(nSize1, nSize2, nSize3)
+Order = c(Order1, Order2, Order3)
+Time = c(Time1, Time2, Time3)
+
+data <- data.frame(Nsize, Time)
+dataOrder <- data.frame(Nsize, Order)
+
+# Order Plot
+   ggplot(dataOrder, aes(x=Nsize, y=Order)) +
+   geom_line( color="#69b3a2", size=2, alpha=0.9) +
+   ggtitle("Order")
+
+# Time Plot
+   ggplot(data, aes(x=Nsize, y=Time)) +
+   geom_line( color="#69b3a2", size=2, alpha=0.9) +
+   ggtitle("Time")
+```
+
+
+## Second sequence 
+Sequence = {1, 4, 13, 40, 121, 364, 1093, 3280 ,9841}
+<br>
+
+
+|        N          |  Times Runned |   Data arrangement   | Time taken (mS) | Order   |
+|-------------------|---------------|----------------------|-----------------|---------|
+|       100         |     20        |       RANDOM         |     0.05        | 47595   |
+|       1000        |     20        |       RANDOM         |     1.00        |1107009  |
+|       10000       |     20        |       RANDOM         |     34.4        |58497091 |
+
+
+```{r second sequence}
+
+#Bench result 1: 
+nSize1= 100
+TimesExecuted1= 20
+Order1= 47595
+Time1= 0.05
+
+#Bench result 2: 
+nSize2= 1000
+TimesExecuted2= 20
+Order2= 1107009
+Time2= 1.0
+
+#Bench result 3: 
+
+nSize3= 10000
+TimesExecuted= 20
+Order3= 58497091
+Time3= 34.4
+
+
+
+Nsize = c(nSize1, nSize2, nSize3)
+Order = c(Order1, Order2, Order3)
+Time = c(Time1, Time2, Time3)
+
+data <- data.frame(Nsize, Time)
+dataOrder <- data.frame(Nsize, Order)
+
+# Order Plot
+  ggplot(dataOrder, aes(x=Nsize, y=Order)) +
+   geom_line( color="#69b3a2", size=2, alpha=0.9) +
+  ggtitle("Order")
+
+# Time Plot
+  ggplot(data, aes(x=Nsize, y=Time)) +
+   geom_line( color="#69b3a2", size=2, alpha=0.9) +
+  ggtitle("Time")
+
+```
+
+
+# QuickSort {.tabset .tabset-fade .tabset-pills .unnumbered}
+## Description:
+
+* Pros:
+  * In-place: Uses only a small auxiliary stack.
+  * Requires time only proportional to N log N on the average to sort N items
+  * Has an extremely short inner loop.
+  * Easy to implement.
+ <br><br>
+
+* Cons:
+  * **Not stable because any key might be moved past a large number of keys equal to it (which have not even been examined yet) during any exchange. There is no easy way to make an array-based quicksort stable is known. Example: **
+   *In class TestStability the following list was sorted using quicksort by the length of the   strings:    ("1", "2", "3", "4", "5", "6", "7").
+    * The output was the following list: ("5", "4", "6", "7", "1", "3", "2")
+    * It did not maintain the order of duplicated keys
+    * Takes about N2 operations in the worst case. 
+  * It is fragile in the sense that a simple mistake in the implementation can go unnoticed and can cause it to perform badly for some files.
+  
+### Quicksort partitioning
+
+![](/Users/isabelaceriani/Documents/Projects/R/QuickSort.png)
+A given file is divided into two subfiles that can be sorted independently. Once sorted, there are no dots above and to its left because no larger element is found when examinning the left subfile; and there are no dots below and to its right because no smaller element was found when examinning the right side. The element in the diagonal is known as the pivot.
+
+## Best M value
+### M=3
+|        N          |  Times Runned |   Data arrangement   | Time taken (mS) | Order   |
+|-------------------|---------------|----------------------|-----------------|---------|
+|       10^3        |     20        |       RANDOM         |     0.6         | 41852   |
+|       10^4        |     20        |       RANDOM         |     1.75        |1038672  |
+|       10^6        |     20        |       RANDOM         |     35.55       |57942473 |
+
+> Task :PerformanceTesting.main()
+Bench result 1: 
+nSize: 9
+Times executed: 20
+Data arrangement: RANDOM
+Sorter type: SHELL
+Order: 0
+Time: 0.05
+M value : 3
+
+Bench result 2: 
+nSize: 9
+Times executed: 20
+Data arrangement: RANDOM
+Sorter type: SHELL
+Order: 0
+Time: 0.0
+M value : 5
+
+Bench result 3: 
+nSize: 9
+Times executed: 20
+Data arrangement: RANDOM
+Sorter type: SHELL
+Order: 0
+Time: 0.0
+M value : 10
+
+Bench result 4: 
+nSize: 9
+Times executed: 20
+Data arrangement: RANDOM
+Sorter type: SHELL
+Order: 0
+Time: 0.0
+M value : 15
+
+Bench result 5: 
+nSize: 9
+Times executed: 20
+Data arrangement: RANDOM
+Sorter type: SHELL
+Order: 0
+Time: 0.0
+M value : 20
+
+Bench result 6: 
+nSize: 9
+Times executed: 20
+Data arrangement: RANDOM
+Sorter type: SHELL
+Order: 0
+Time: 0.0
+M value : 50
+
+
+
+# Bibliography
+
+[MIT](http://web.mit.edu/1.124/LectureNotes/sorting.html#:~:text=Examples%20of%20elementary%20sorting%20algorithms,algorithms%20which%20have%20widespread%20use.)
+<br>
+[Anaydis](https://facultaddeingenieria.github.io/anaydis/elemental_sorters#25)
+<br>
+[Medium](https://medium.com/@DiData/elementary-search-algorithms-explained-fde60052507b)
+[Addison Wesley - Algorithms in Java, Parts 1-4, 3rd Edition ](https://users.dcc.uchile.cl/~nbaloian/cc3001-02/Libros/Algoritmos%20y%20Estructura%20de%20Datos/Addison%20Wesley%20-%20Algorithms%20in%20Java,%20Parts%201-4,%203rd%20Edition%20.pdf)
