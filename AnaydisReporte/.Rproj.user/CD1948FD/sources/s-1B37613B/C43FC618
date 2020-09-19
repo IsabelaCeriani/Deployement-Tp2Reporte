@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1600537059642.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3519851450",
+    "id" : "C43FC618",
+    "lastKnownWriteTime" : 1600537072,
+    "last_content_update" : 1600537072433,
+    "path" : "~/Documents/Projects/R/Deployement-Tp2Reporte/index.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "36,13",
+        "scrollLine" : "24"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
